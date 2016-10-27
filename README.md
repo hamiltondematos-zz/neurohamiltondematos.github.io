@@ -17,3 +17,11 @@ if ms != self.inputs[in_][1:]:
     normal_mean = (mean - m_min) / (m_max - m_min)
     mean = resize_image(normal_mean.transpose((1,2,0)),in_shape[1:]).transpose((2,0,1)) * (m_max - m_min) + m_min
     #raise ValueError('Mean shape incompatible with input shape.')
+
+
+
+docker pull --engine-env HTTP_PROXY=http://matriz.sp01.local:8080 --engine-env HTTPS_PROXY=https://matriz.sp01.local:8080 floydhub/dl-docker:cpu
+
+
+
+docker-machine create -d virtualbox --engine-env HTTP_PROXY=http://matriz.sp01.local:8080 --engine-env HTTPS_PROXY=https://matriz.sp01.local:8080 default
